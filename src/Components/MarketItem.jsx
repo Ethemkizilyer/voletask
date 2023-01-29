@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../features/mySlice";
 import { decrementByAmount } from "../features/cardSlice";
 import DetailsMarket from "./DetailsMarket";
+import { toast } from "react-toastify";
 
 function MarketItem({
   id,
@@ -17,7 +18,8 @@ function MarketItem({
 }) {
   const dispatch = useDispatch();
   const cardslice = useSelector((state) => state.counter);
-
+  const { myCards } = useSelector((state) => state.my);
+  console.log(myCards);
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
 
@@ -27,8 +29,11 @@ function MarketItem({
   const [showControl, setShowControl] = useState(false);
   const handleCloseshowControl = () => setShowControl(false);
   const handleShowshowControl = () => setShowControl(true);
+
+  const filter = myCards.find((item) => item.id == id);
+
   const handleAddClick = () => {
-    if (cardslice.value >= price) {
+    if (cardslice.value >= price && !filter) {
       dispatch(decrementByAmount(price));
       handleClose();
       dispatch(
@@ -43,9 +48,12 @@ function MarketItem({
           attributes,
         })
       );
+    } else if (filter) {
+      toast.error("This player already has it in his basket");
+      return handleClose();
     } else {
-      handleClose();
       handleShowshowControl();
+      return handleClose();
     }
   };
 
