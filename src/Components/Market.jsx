@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Accordion, Row, Col, ListGroup } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Box, Slider } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { getMarketAsync } from "../features/marketSlice";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import MarketItem from "./MarketItem";
 
-function Market() {
+function Mycards(props) {
   function valuetext(value) {
     return (
       <Row className="sldr">
@@ -15,22 +17,42 @@ function Market() {
     );
   }
   const [value, setValue] = useState([0, 100]);
+  const [query, setquery] = useState("");
+  const [postn, setpostn] = useState("");
 
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+  const dispatch = useDispatch();
+  const { cards } = useSelector((state) => state.market);
+  console.log(cards);
+  const counts = [];
+  cards.forEach((x) => {
+    counts[x.cardType] = (counts[x.cardType] || 0) + 1;
+  });
+  const countsPosition = [];
+  cards.forEach((x) => {
+    countsPosition[x.position] = (countsPosition[x.position] || 0) + 1;
+  });
+
+  const getCategories = (e) => {
+    setquery(e.target.innerText);
+  };
+  const getPosition = (e) => {
+    setpostn(e.target.innerText);
+  };
   let [page, setPage] = useState(1);
   const PER_PAGE = 10;
 
-  const count = Math.ceil(50 / PER_PAGE);
+  const count = Math.ceil(cards.length / PER_PAGE);
 
   const handlePagination = (e, p) => {
     setPage(p);
   };
 
-  const getCategories = (e) => {
-    console.log("bekle");
-  };
-  const getPosition = (e) => {
-    console.log("bekle");
-  };
+  useEffect(() => {
+    dispatch(getMarketAsync());
+  }, [dispatch]);
 
   return (
     <div>
@@ -49,12 +71,15 @@ function Market() {
                     <ListGroup className="listgrp" variant="flush">
                       <ListGroup.Item>
                         <span onClick={getCategories}>Gold</span>
+                        <span> ({counts.Gold})</span>
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <span onClick={getCategories}>Silver</span>
+                        <span> ({counts.Silver})</span>
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <span onClick={getCategories}>Bronze</span>
+                        <span> ({counts.Bronze})</span>
                       </ListGroup.Item>
                     </ListGroup>
                   </Accordion.Body>
@@ -65,34 +90,68 @@ function Market() {
                     <ListGroup className="listgrp" variant="flush">
                       <ListGroup.Item>
                         <span onClick={getPosition}>Goalkeeper</span>
+                        <span> ({countsPosition.Goalkeeper})</span>
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <span onClick={getPosition}>Defender</span>
+                        <span> ({countsPosition.Defender})</span>
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <span onClick={getPosition}>Midfielder</span>
+                        <span> ({countsPosition.Midfielder})</span>
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <span onClick={getPosition}>Forward</span>
+                        <span> ({countsPosition.Forward})</span>
                       </ListGroup.Item>
                     </ListGroup>
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Price</Accordion.Header>
-                  <Accordion.Body></Accordion.Body>
+                  <Accordion.Body>
+                    <Box sx={{ width: 130 }}>
+                      {valuetext(value)}
+                      <Slider
+                        getAriaLabel={() => "Temperature range"}
+                        value={value}
+                        onChange={handleChange}
+                        valueLabelDisplay="auto"
+                        getAriaValueText={valuetext}
+                      />
+                    </Box>
+                  </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
             </div>
           </Col>
-          <Col
-            className="mt-1 mb-1"
-            xs={12}
-            sm={6}
-            md={8}
-            lg={9}
-            xxl={10}
-          ></Col>
+          <Col className="mt-1 mb-1" xs={12} sm={6} md={8} lg={9} xxl={10}>
+            <Row>
+              {cards
+                .filter(
+                  (mydt) =>
+                    mydt.cardType.toLowerCase().includes(query.toLowerCase()) &&
+                    mydt.position.toLowerCase().includes(postn.toLowerCase()) &&
+                    mydt.price >= value[0] &&
+                    mydt.price <= value[1]
+                )
+                .slice(page * PER_PAGE - PER_PAGE, page * PER_PAGE)
+
+                .map((item) => (
+                  <MarketItem
+                    key={item.id}
+                    id={item.id}
+                    photoUrl={item.photoUrl}
+                    price={item.price}
+                    cardType={item.cardType}
+                    name={item.name}
+                    position={item.position}
+                    team={item.team}
+                    attributes={item.attributes}
+                  />
+                ))}
+            </Row>
+          </Col>
         </Row>
         <Row className="mt-3 text-center">
           <Col>
@@ -110,4 +169,4 @@ function Market() {
   );
 }
 
-export default Market;
+export default Mycards;
