@@ -4,7 +4,7 @@ import { Box, Slider } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { getMyAsync } from "../features/mySlice";
 import MyCardItem from "./MyCardItem";
-function Mycards(props) {
+function Mycards() {
   function valuetext(value) {
     return (
       <Row className="sldr">

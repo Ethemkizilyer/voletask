@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Card, Button, Col, Modal, Row } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from "react-redux";
 import { deleteTodo } from "../features/mySlice";
-
-
+import { incrementByAmount } from "../features/cardSlice";
+import Details from "./Details";
 
 function MyCardItem({
   id,
@@ -24,12 +23,24 @@ function MyCardItem({
   const handleShow = () => setShow(true);
   const handleDeleteClick = () => {
     dispatch(deleteTodo({ id }));
-
+    dispatch(incrementByAmount(price));
   };
 
   return (
     <>
-     
+      <Details
+        lgShow={lgShow}
+        setLgShow={setLgShow}
+        key={id}
+        id={id}
+        photoUrl={photoUrl}
+        price={price}
+        cardType={cardType}
+        name={name}
+        position={position}
+        team={team}
+        attributes={attributes}
+      />
       <Col
         className="mt-1 mb-1 gridCol"
         xs={12}
