@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Accordion, Row, Col, ListGroup } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Box, Slider } from "@mui/material";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
-function Mycards() {
+function Market() {
   function valuetext(value) {
     return (
       <Row className="sldr">
@@ -13,8 +16,13 @@ function Mycards() {
   }
   const [value, setValue] = useState([0, 100]);
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 10;
+
+  const count = Math.ceil(50 / PER_PAGE);
+
+  const handlePagination = (e, p) => {
+    setPage(p);
   };
 
   const getCategories = (e) => {
@@ -26,11 +34,12 @@ function Mycards() {
 
   return (
     <div>
-      <section className="MycardBody" id="section-1">
+      <section className="MycardBody" id="section-2">
         <Row>
           <Col xs={12} className="mycardHead">
             <div>MY CARDS</div>
           </Col>
+
           <Col className="mb-1 accordGrid" xs={12} sm={6} md={4} lg={3} xxl={2}>
             <div className="accord">
               <Accordion alwaysOpen flush className="accordinside">
@@ -71,21 +80,29 @@ function Mycards() {
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Price</Accordion.Header>
-                  <Accordion.Body>
-                    <Box sx={{ width: 130 }}>
-                      {valuetext(value)}
-                      <Slider
-                        getAriaLabel={() => "Temperature range"}
-                        value={value}
-                        onChange={handleChange}
-                        valueLabelDisplay="auto"
-                        getAriaValueText={valuetext}
-                      />
-                    </Box>
-                  </Accordion.Body>
+                  <Accordion.Body></Accordion.Body>
                 </Accordion.Item>
               </Accordion>
             </div>
+          </Col>
+          <Col
+            className="mt-1 mb-1"
+            xs={12}
+            sm={6}
+            md={8}
+            lg={9}
+            xxl={10}
+          ></Col>
+        </Row>
+        <Row className="mt-3 text-center">
+          <Col>
+            <Stack spacing={2}>
+              <Pagination
+                count={count}
+                page={page}
+                onChange={handlePagination}
+              />
+            </Stack>
           </Col>
         </Row>
       </section>
@@ -93,4 +110,4 @@ function Mycards() {
   );
 }
 
-export default Mycards;
+export default Market;
