@@ -19,6 +19,9 @@ function Market(props) {
   const [value, setValue] = useState([0, 100]);
   const [query, setquery] = useState("");
   const [postn, setpostn] = useState("");
+ const [selectedCategory, setSelectedCategory] = useState("");
+ const [selectedPosition, setSelectedPosition] = useState("");
+
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -37,9 +40,18 @@ function Market(props) {
 
   const getCategories = (e) => {
     setquery(e.target.innerText);
+    setSelectedCategory(e.target.innerText);
+
+    e.target.innerText == selectedCategory
+      ? setSelectedCategory("")
+      : setSelectedCategory(e.target.innerText);
+    e.target.innerText == query ? setquery("") : setquery(e.target.innerText);
   };
   const getPosition = (e) => {
-    setpostn(e.target.innerText);
+    e.target.innerText == selectedPosition
+      ? setSelectedPosition("")
+      : setSelectedPosition(e.target.innerText);
+    e.target.innerText == postn ? setpostn("") : setpostn(e.target.innerText);
   };
   let [page, setPage] = useState(1);
   const PER_PAGE = 10;
@@ -69,16 +81,22 @@ function Market(props) {
                   <Accordion.Header>Card Type</Accordion.Header>
                   <Accordion.Body>
                     <ListGroup className="listgrp" variant="flush">
-                      <ListGroup.Item>
-                        <span onClick={getCategories}>Gold</span>
+                      <ListGroup.Item
+                        variant={selectedCategory == "Gold" ? "danger" : ""}
+                      >
+                        <span onClick={(e) => getCategories(e)}>Gold</span>
                         <span> ({counts.Gold})</span>
                       </ListGroup.Item>
-                      <ListGroup.Item>
-                        <span onClick={getCategories}>Silver</span>
+                      <ListGroup.Item
+                        variant={selectedCategory == "Silver" ? "danger" : ""}
+                      >
+                        <span onClick={(e) => getCategories(e)}>Silver</span>
                         <span> ({counts.Silver})</span>
                       </ListGroup.Item>
-                      <ListGroup.Item>
-                        <span onClick={getCategories}>Bronze</span>
+                      <ListGroup.Item
+                        variant={selectedCategory == "Bronze" ? "danger" : ""}
+                      >
+                        <span onClick={(e) => getCategories(e)}>Bronze</span>
                         <span> ({counts.Bronze})</span>
                       </ListGroup.Item>
                     </ListGroup>
@@ -88,19 +106,32 @@ function Market(props) {
                   <Accordion.Header>Position</Accordion.Header>
                   <Accordion.Body>
                     <ListGroup className="listgrp" variant="flush">
-                      <ListGroup.Item>
-                        <span onClick={getPosition}>Goalkeeper</span>
+                      <ListGroup.Item
+                        variant={
+                          selectedPosition == "Goalkeeper" ? "danger" : ""
+                        }
+                        onClick={(e) => getPosition(e)}
+                      >
+                        <span>Goalkeeper</span>
                         <span> ({countsPosition.Goalkeeper})</span>
                       </ListGroup.Item>
-                      <ListGroup.Item>
+                      <ListGroup.Item
+                        variant={selectedPosition == "Defender" ? "danger" : ""}
+                      >
                         <span onClick={getPosition}>Defender</span>
                         <span> ({countsPosition.Defender})</span>
                       </ListGroup.Item>
-                      <ListGroup.Item>
+                      <ListGroup.Item
+                        variant={
+                          selectedPosition == "Midfielder" ? "danger" : ""
+                        }
+                      >
                         <span onClick={getPosition}>Midfielder</span>
                         <span> ({countsPosition.Midfielder})</span>
                       </ListGroup.Item>
-                      <ListGroup.Item>
+                      <ListGroup.Item
+                        variant={selectedPosition == "Forward" ? "danger" : ""}
+                      >
                         <span onClick={getPosition}>Forward</span>
                         <span> ({countsPosition.Forward})</span>
                       </ListGroup.Item>

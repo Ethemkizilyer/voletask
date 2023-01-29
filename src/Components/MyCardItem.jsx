@@ -15,6 +15,7 @@ function MyCardItem({
   team,
   attributes,
 }) {
+ 
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
