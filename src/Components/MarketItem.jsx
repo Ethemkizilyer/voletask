@@ -19,7 +19,6 @@ function MarketItem({
   const dispatch = useDispatch();
   const cardslice = useSelector((state) => state.counter);
   const { myCards } = useSelector((state) => state.my);
-  console.log(myCards);
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
 

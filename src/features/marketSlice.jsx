@@ -17,7 +17,7 @@ export const getMarketAsync = createAsyncThunk(
 const initialState = {
   loading: false,
   error: false,
-  cards: [],
+  cards: [] ,
 };
 
 export const marketSlice = createSlice({
@@ -33,6 +33,7 @@ export const marketSlice = createSlice({
         state.loading = false;
         state.cards = action.payload;
         state.error = false;
+      
       })
       .addCase(getMarketAsync.rejected, (state) => {
         state.loading = false;
