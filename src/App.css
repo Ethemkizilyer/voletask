@@ -130,3 +130,269 @@
  .imgMain{
    max-height: 440px;
  }
+
+
+ /* ************* */
+
+ .MycardBody{
+  min-height: 530px;
+    background-color: #F2F4F5;
+  border-radius: 8px;
+  position: relative;
+  top: 204px;
+  margin: 40px;
+  padding: 24px;
+
+}
+.MarketBody{
+  height: 922px;
+  background-color: #F2F4F5;
+  border-radius: 8px;
+  position: relative;
+   margin:326px 40px  108px 40px;
+}
+.mycardHead{
+  height: 54px;
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 24px;
+}
+.accord{
+  width: 199px;
+  min-height: 184px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #fff;
+
+ }
+.accordion-item {
+  background-color: #fff;
+  min-height: 61px;
+ }
+.accordinside{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.listgrp .list-group-item{
+  color: #6C7072 ;
+  font-size: 15px;
+  border: 0px;
+}
+.accordion-button{
+  font-weight: 400;
+}
+.accordion-button:not(.collapsed) {
+  color: black !important;
+  background-color: #ffffff !important;
+ }
+ .accordion-button:focus {
+  
+   border-color:#ffffff !important;
+   box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.25) !important;
+  
+  }
+  .sldr{
+    font-size: 12px;
+    color: #E8282B !important ;
+    font-weight: 700;
+  }
+  .css-187mznn-MuiSlider-root {
+    color: #E8282B !important;
+}
+.css-14pt78w-MuiSlider-rail {
+  
+  background-color: #E3E5E5!important  ;
+  
+}
+.css-eg0mwd-MuiSlider-thumb {
+
+  background-color: white !important;
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid red !important;
+}
+.card{
+  width: 198px;
+  height: 346px;
+  border-radius: 8px !important;
+}
+.btn-outline-danger{
+  font-size: 16px !important;
+  border-radius: 8px !important;
+  padding:4px 26px 4px 26px !important;
+  position: relative;
+  right: -19% !important;
+  bottom: 10px;
+  font-weight: 600;
+
+}
+.priceSell{
+  font-size: 16px !important;
+   position: relative;
+  left: 0% !important;
+  bottom: 10px;
+  font-weight: 700;
+  color: #000000;
+
+}
+.modal-content{
+   /* width: 914px  !important;;
+  height: 860px  !important;; */
+  text-align: center;  
+  cursor: pointer;
+
+}
+
+.modal-footer {
+ 
+  align-items: inherit !important;
+  flex-direction: column !important;
+ 
+}
+.modal-title{
+  width: 100% !important;;
+  text-align: center !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+}
+.modalPrice{
+  color: #E8282B !important  ;
+}
+.modalbutton{
+  background-color: #E8282B !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 16px!important;
+}
+.modalbuttonRefuse{
+  background-color: white !important;
+  font-weight: 600 !important;
+  font-size: 16px!important;
+  color: #E8282B !important;
+  border-radius: 8px !important;
+}
+.modalFirstGrid{
+  height: 382px !important;
+  background-image: linear-gradient(#A3873C
+  , #E3D294
+  );
+
+}
+.modalSecondGrid{
+  height: 478px !important;
+  background-color: white;
+text-align: left;
+padding: 40px 20px 20px 20px !important ;
+}
+.modalFirstGrid  .btn-close{
+  position: absolute;
+  top: 50px;
+  right: 50px;
+ }
+ .detailImage{
+  width: 198px !important;
+  height: 286px !important;
+  display: block !important;;
+  margin-left: auto !important;;
+  margin-right: auto !important;;
+ }
+ .modalSecondGridName{
+   color: #E8282B;
+   font-weight: 700;
+   font-size: 24px;
+   padding-top: 8px !important;
+   margin-bottom: 8px;
+ }
+ .modalsell{
+   width: 421px;
+   height: 96px;
+   background-color: #F2F4F5 !important;
+   border-radius: 8px;
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   justify-content: space-around;
+   font-size: 24px;
+   font-weight: 700;
+
+ }
+ .modalsellbtn{
+  width: 174px;
+  height: 48px;
+  border-radius: 8px !important;
+  background-color: #E8282B !important  ;
+
+ }
+ .modalThirdGrid{
+  background-color: #F2F4F5 !important;
+  border-radius: 8px;
+  height: 190px;
+  PADDING: 4px;
+ }
+ .attrBox{
+  background-color:white !important;
+  margin: 6px;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 96px;
+  max-width: 114px !important;
+  flex-direction: column;
+  padding: 13px;
+  border-radius: 8px !important;
+}
+.keyHead{
+  font-size: 18px;
+   font-weight: 400;
+  color: #000000;
+}
+.valuePoint{
+  font-size: 24px;
+   font-weight: 700;
+}
+.degree{
+  font-size: 18px;
+   font-weight: 400;
+  color: gray;
+}
+.modalFourth{
+  display: flex !important;
+  justify-content: space-between;
+  align-content: flex-end;
+}
+ .modalFooter{
+        max-width:  49% !important;
+       height: 96px;
+       background-color: #F2F4F5 !important;
+       border-radius: 8px;
+       display: flex;
+       
+       font-size: 24px;
+       font-weight: 700;
+       padding: 10px;
+       align-items: flex-start;
+       flex-direction: column;
+       justify-content: flex-start;
+ }
+ .card{
+   cursor: pointer !important;
+ }
+ 
+ .MuiPagination-ul{
+  flex-direction: row !important;
+  align-content: space-around !important;
+  justify-content: center !important;
+ }
+.MuiPaginationItem-root{
+  background-color: #CDCFD0 !important;
+  color: white !important;
+}
+.Mui-selected {
+  color: #fff !important;
+  background-color: #E8282B !important
+  ;
+}
+.list-group-item{
+  cursor: pointer;
+}
