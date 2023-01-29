@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { value: 100 };
+const initialState = { value: JSON.parse(localStorage.getItem("budget")) || 100 };
 
 const cardSlice = createSlice({
   name: "counter",
@@ -8,9 +8,11 @@ const cardSlice = createSlice({
   reducers: {
     incrementByAmount(state, action) {
       state.value += action.payload;
+      localStorage.setItem("budget", JSON.stringify(state.value));
     },
     decrementByAmount(state, action) {
       state.value -= action.payload;
+            localStorage.setItem("budget", JSON.stringify(state.value));
     },
   },
 });

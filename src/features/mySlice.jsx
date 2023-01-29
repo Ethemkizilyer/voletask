@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 export const getMyAsync = createAsyncThunk("my/getMyAsync", async () => {
   try {
     const { data } = await axios("http://challenge.vole.io/cards/mycards");
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error.message);
