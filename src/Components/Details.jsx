@@ -50,7 +50,7 @@ function Details({
             <Col>
               {" "}
               <div className="modalsell">
-                &#x20AC; {price.toFixed(2)}
+                <p>&#x20AC; {price.toFixed(2)}</p>
                 <Button
                   onClick={handleShow}
                   variant="danger"

@@ -1,8 +1,8 @@
-.App{
-  background-color: #FFFFFF;
- }
-/* header */
-.header{
+.App {
+  background-color: #ffffff;
+}
+/* ******* HEADER *********** */
+.header {
   min-height: 122px;
   position: fixed !important;
   background-color: #000000;
@@ -11,22 +11,21 @@
   padding-left: 14px;
   text-align: left;
   z-index: 5;
-  
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
-.navlink{
+.navlink {
   margin-left: 64px;
   font-size: 18px;
   font-weight: 600;
- }
-.brand{
+}
+.brand {
   margin-right: 32px !important;
 }
 
-.salescard{
+.salescard {
   width: 179px;
   height: 48px;
   border-radius: 8px;
@@ -35,82 +34,73 @@
   vertical-align: middle;
   line-height: 32px;
   font-weight: 700;
- 
 }
-.imageback{
-  background-color: #E8282B;
-   border-top-left-radius: 8px;
-   border-bottom-left-radius: 8px;
-
-  
-  ;
+.imageback {
+  background-color: #e8282b;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
-.current{
-  border-bottom:2px solid #E8282B;
- }
- .scrolled{
-  border-bottom:0px solid #E8282B;
- }
-.tr{
+.current {
+  border-bottom: 2px solid #e8282b;
+}
+.scrolled {
+  border-bottom: 0px solid #e8282b;
+}
+.tr {
   height: 900px;
- }
-.scrollspy{
+}
+.scrollspy {
   display: flex;
 }
 
-/* ************ */
+/* ***** CAROUSEL ******* */
 
-.crsl{
+.crsl {
   top: 122px;
 }
 
 .carousel-indicators [data-bs-target] {
-   
   width: 8px !important;
   height: 8px !important;
   border-radius: 50% !important;
-   }
-   .carousel-indicators .active{
-     background-color: #E8282B !important;
-   }
-   .carousel-indicators {
-    position: absolute !important;
-    left: 20% !important;
-    bottom: 20% !important;
-    margin-bottom: 0% !important;
-    width: 50px;
-    margin-left: 4% !important;
-    margin-right: 3% !important;
-     }
-      .carousel-control-next{
-        position: absolute !important;
-        left: 26% !important;
-         height: 100%;
+}
+.carousel-indicators .active {
+  background-color: #e8282b !important;
+}
+.carousel-indicators {
+  position: absolute !important;
+  left: 20% !important;
+  bottom: 20% !important;
+  margin-bottom: 0% !important;
+  width: 50px;
+  margin-left: 4% !important;
+  margin-right: 3% !important;
+}
+.carousel-control-next {
+  position: absolute !important;
+  left: 26% !important;
+  height: 100%;
+}
+.carousel-control-prev {
+  position: absolute !important;
+  height: 100%;
+  left: 19% !important;
+}
+.carousel-control-prev-icon {
+  position: relative;
+  bottom: 20%;
+}
+.carousel-control-next-icon {
+  position: relative;
+  bottom: 20%;
+}
+.carousel-control-next,
+.carousel-control-prev {
+  width: 6% !important;
+  align-items: end !important;
+}
 
-
-       }
-      .carousel-control-prev{
-        position: absolute !important;
-          height: 100%;
-          left: 19% !important;
-          
-      }
-      .carousel-control-prev-icon{
-        position: relative;
-        bottom: 20%;
-      }
-      .carousel-control-next-icon{
-        position: relative;
-        bottom: 20%;
-
-       }
-      .carousel-control-next, .carousel-control-prev {
-        width: 6% !important;
-        align-items: end !important;
-
-      }
-      
 .bronzeText {
   position: absolute;
   bottom: 291%;
@@ -118,219 +108,200 @@
   left: 8%;
   text-align: left;
 }
-.imgStick{
+.imgStick {
   z-index: 50;
   max-width: 100%;
- 
+
   position: absolute;
   right: 10%;
   bottom: 50px;
+}
+.imgMain {
+  max-height: 440px;
+}
 
- }
- .imgMain{
-   max-height: 440px;
- }
+/* ***** MYCARD ******** */
 
-
- /* ************* */
-
- .MycardBody{
+.MycardBody {
   min-height: 530px;
-    background-color: #F2F4F5;
+  background-color: #f2f4f5;
   border-radius: 8px;
   position: relative;
   top: 204px;
   margin: 40px;
   padding: 24px;
-
 }
-.MarketBody{
+.MarketBody {
   height: 922px;
-  background-color: #F2F4F5;
+  background-color: #f2f4f5;
   border-radius: 8px;
   position: relative;
-   margin:326px 40px  108px 40px;
+  margin: 326px 40px 108px 40px;
 }
-.mycardHead{
+.mycardHead {
   height: 54px;
   font-size: 18px;
   font-weight: 700;
   padding-left: 24px;
 }
-.accord{
+.accord {
   width: 199px;
   min-height: 184px;
   font-size: 16px;
   font-weight: 400;
   background-color: #fff;
-
- }
+}
 .accordion-item {
   background-color: #fff;
   min-height: 61px;
- }
-.accordinside{
+}
+.accordinside {
   padding-left: 15px;
   padding-right: 15px;
 }
-.listgrp .list-group-item{
-  color: #6C7072 ;
+.listgrp .list-group-item {
+  color: #6c7072;
   font-size: 15px;
   border: 0px;
 }
-.accordion-button{
+.accordion-button {
   font-weight: 400;
 }
 .accordion-button:not(.collapsed) {
   color: black !important;
   background-color: #ffffff !important;
- }
- .accordion-button:focus {
-  
-   border-color:#ffffff !important;
-   box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.25) !important;
-  
-  }
-  .sldr{
-    font-size: 12px;
-    color: #E8282B !important ;
-    font-weight: 700;
-  }
-  .css-187mznn-MuiSlider-root {
-    color: #E8282B !important;
+}
+.accordion-button:focus {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.25) !important;
+}
+.sldr {
+  font-size: 12px;
+  color: #e8282b !important ;
+  font-weight: 700;
+}
+.css-187mznn-MuiSlider-root {
+  color: #e8282b !important;
 }
 .css-14pt78w-MuiSlider-rail {
-  
-  background-color: #E3E5E5!important  ;
-  
+  background-color: #e3e5e5 !important  ;
 }
 .css-eg0mwd-MuiSlider-thumb {
-
   background-color: white !important;
   width: 12px !important;
   height: 12px !important;
   border: 2px solid red !important;
 }
-.card{
+.card {
   width: 198px;
   height: 346px;
   border-radius: 8px !important;
 }
-.btn-outline-danger{
+.btn-outline-danger {
   font-size: 16px !important;
   border-radius: 8px !important;
-  padding:4px 26px 4px 26px !important;
+  padding: 4px 26px 4px 26px !important;
   position: relative;
   right: -19% !important;
   bottom: 10px;
   font-weight: 600;
-
 }
-.priceSell{
+.priceSell {
   font-size: 16px !important;
-   position: relative;
+  position: relative;
   left: 0% !important;
   bottom: 10px;
   font-weight: 700;
   color: #000000;
-
 }
-.modal-content{
-   /* width: 914px  !important;;
-  height: 860px  !important;; */
-  text-align: center;  
+.modal-content {
+  text-align: center;
   cursor: pointer;
-
 }
 
 .modal-footer {
- 
   align-items: inherit !important;
   flex-direction: column !important;
- 
 }
-.modal-title{
-  width: 100% !important;;
+.modal-title {
+  width: 100% !important;
   text-align: center !important;
   font-size: 24px !important;
   font-weight: 700 !important;
 }
-.modalPrice{
-  color: #E8282B !important  ;
+.modalPrice {
+  color: #e8282b !important  ;
 }
-.modalbutton{
-  background-color: #E8282B !important;
+.modalbutton {
+  background-color: #e8282b !important;
   border-radius: 8px !important;
   font-weight: 600 !important;
-  font-size: 16px!important;
+  font-size: 16px !important;
 }
-.modalbuttonRefuse{
+.modalbuttonRefuse {
   background-color: white !important;
   font-weight: 600 !important;
-  font-size: 16px!important;
-  color: #E8282B !important;
+  font-size: 16px !important;
+  color: #e8282b !important;
   border-radius: 8px !important;
 }
-.modalFirstGrid{
+.modalFirstGrid {
   height: 382px !important;
-  background-image: linear-gradient(#A3873C
-  , #E3D294
-  );
-
+  background-image: linear-gradient(#a3873c, #e3d294);
 }
-.modalSecondGrid{
+.modalSecondGrid {
   height: 478px !important;
   background-color: white;
-text-align: left;
-padding: 40px 20px 20px 20px !important ;
+  text-align: left;
+  padding: 40px 20px 20px 20px !important ;
 }
-.modalFirstGrid  .btn-close{
+.modalFirstGrid .btn-close {
   position: absolute;
   top: 50px;
   right: 50px;
- }
- .detailImage{
+}
+.detailImage {
   width: 198px !important;
   height: 286px !important;
-  display: block !important;;
-  margin-left: auto !important;;
-  margin-right: auto !important;;
- }
- .modalSecondGridName{
-   color: #E8282B;
-   font-weight: 700;
-   font-size: 24px;
-   padding-top: 8px !important;
-   margin-bottom: 8px;
- }
- .modalsell{
-   width: 421px;
-   height: 96px;
-   background-color: #F2F4F5 !important;
-   border-radius: 8px;
-   display: flex;
-   align-items: center;
-   flex-direction: row;
-   justify-content: space-around;
-   font-size: 24px;
-   font-weight: 700;
-
- }
- .modalsellbtn{
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.modalSecondGridName {
+  color: #e8282b;
+  font-weight: 700;
+  font-size: 24px;
+  padding-top: 8px !important;
+  margin-bottom: 8px;
+}
+.modalsell {
+  width: 421px;
+  height: 96px;
+  background-color: #f2f4f5 !important;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 24px;
+  font-weight: 700;
+}
+.modalsellbtn {
   width: 174px;
   height: 48px;
   border-radius: 8px !important;
-  background-color: #E8282B !important  ;
-
- }
- .modalThirdGrid{
-  background-color: #F2F4F5 !important;
+  background-color: #e8282b !important  ;
+}
+.modalThirdGrid {
+  background-color: #f2f4f5 !important;
   border-radius: 8px;
   height: 190px;
-  PADDING: 4px;
- }
- .attrBox{
-  background-color:white !important;
+  padding: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.attrBox {
+  background-color: white !important;
   margin: 6px;
   text-align: center;
   display: flex;
@@ -342,57 +313,255 @@ padding: 40px 20px 20px 20px !important ;
   padding: 13px;
   border-radius: 8px !important;
 }
-.keyHead{
+.keyHead {
   font-size: 18px;
-   font-weight: 400;
+  font-weight: 400;
   color: #000000;
 }
-.valuePoint{
+.valuePoint {
   font-size: 24px;
-   font-weight: 700;
+  font-weight: 700;
 }
-.degree{
+.degree {
   font-size: 18px;
-   font-weight: 400;
+  font-weight: 400;
   color: gray;
 }
-.modalFourth{
+.modalFourth {
   display: flex !important;
   justify-content: space-between;
   align-content: flex-end;
 }
- .modalFooter{
-        max-width:  49% !important;
-       height: 96px;
-       background-color: #F2F4F5 !important;
-       border-radius: 8px;
-       display: flex;
-       
-       font-size: 24px;
-       font-weight: 700;
-       padding: 10px;
-       align-items: flex-start;
-       flex-direction: column;
-       justify-content: flex-start;
- }
- .card{
-   cursor: pointer !important;
- }
- 
- .MuiPagination-ul{
+.modalFooter {
+  max-width: 49% !important;
+  height: 96px;
+  background-color: #f2f4f5 !important;
+  border-radius: 8px;
+  display: flex;
+
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.card {
+  cursor: pointer !important;
+}
+
+.MuiPagination-ul {
   flex-direction: row !important;
   align-content: space-around !important;
   justify-content: center !important;
- }
-.MuiPaginationItem-root{
-  background-color: #CDCFD0 !important;
+}
+.MuiPaginationItem-root {
+  background-color: #cdcfd0 !important;
   color: white !important;
 }
 .Mui-selected {
   color: #fff !important;
-  background-color: #E8282B !important
+  background-color: #e8282b !important
   ;
 }
-.list-group-item{
+.list-group-item {
   cursor: pointer;
+}
+
+/****** RESPONSIVE ********/
+
+@media only screen and (min-width: 1682px) {
+  .accordGrid {
+    width: 218px !important;
+    margin-right: 4px !important;
+  }
+}
+@media only screen and (min-width: 1400px) and (max-width: 1681px) {
+  .gridCol {
+    width: 218px !important;
+  }
+}
+
+@media only screen and (max-width: 1381px) {
+  .carousel-indicators {
+    margin-left: 3.5% !important;
+  }
+  .imgStick {
+    z-index: 50;
+    max-height: 250px;
+
+    position: absolute;
+    right: 10%;
+    bottom: 0px;
+  }
+  .card {
+    width: 198px;
+    height: 346px;
+    border-radius: 8px !important;
+  }
+  .modal-content {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .modalFirstGrid {
+    height: 100% !important;
+  }
+  .modalFirstGrid .btn-close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+  }
+  .modalSecondGrid {
+    height: 100% !important;
+  }
+  .modalThirdGrid {
+    height: 100% !important;
+  }
+}
+@media only screen and (max-width: 1031px) {
+  .carousel-indicators {
+    margin-left: 3% !important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .header {
+    min-height: 40px;
+  }
+  .brand {
+    margin-right: 2px !important;
+  }
+  .bronzeText {
+    position: relative;
+    bottom: 0%;
+    margin-bottom: 2%;
+    left: 0%;
+    text-align: left;
+    font-weight: bold;
+    font-size: 56px;
+  }
+  .navlink {
+    margin-left: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 20px !important;
+  }
+  .scrollspy {
+    display: block;
+    position: relative;
+    left: -34px;
+  }
+  .crsl {
+    top: 60px;
+  }
+
+  .carousel-control-next {
+    position: absolute !important;
+    right: 1% !important;
+    height: 100%;
+    left: 93% !important;
+  }
+  .carousel-control-prev {
+    position: absolute !important;
+    height: 100%;
+    left: 1% !important;
+  }
+  .carousel-indicators {
+    position: absolute !important;
+    left: 0% !important;
+    bottom: 0% !important;
+    margin-bottom: 0% !important;
+    width: 100%;
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+  }
+  .carousel-control-next {
+    position: absolute !important;
+    right: 1% !important;
+    height: 100%;
+  }
+  .carousel-control-prev {
+    position: absolute !important;
+    height: 100%;
+    left: 1% !important;
+  }
+  .carousel-control-prev-icon {
+    position: relative;
+    bottom: 0%;
+  }
+  .carousel-control-next-icon {
+    position: relative;
+    bottom: 0%;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 6% !important;
+    align-items: center !important;
+  }
+  .imgStick {
+    max-height: 150px;
+
+    position: absolute;
+    right: 0%;
+    bottom: 0px;
+  }
+  .bronzeText {
+    font-size: 24px;
+    bottom: 0px;
+  }
+  .MycardBody {
+    min-height: 530px;
+
+    top: 104px;
+    margin: 0px;
+  }
+  .attrBox {
+    background-color: white !important;
+    margin: 6px;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 96px;
+    max-width: 130px !important;
+    flex-direction: column;
+    padding: 13px;
+    border-radius: 8px !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .gridCol {
+    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+@media only screen and (max-width: 591px) {
+  .imgStick {
+    max-height: 100px;
+
+    position: absolute;
+    right: 0%;
+    bottom: -20px;
+  }
+  .bronzeText {
+    font-size: 14px;
+    bottom: -20px;
+  }
+  .imgStick {
+    height: 150px;
+  }
+  .imgMain {
+    min-height: 140px;
+  }
+  .accord {
+    width: 100%;
+    min-height: 184px;
+  }
+  .css-1s16w59 {
+    width: 100% !important;
+  }
+  .modalsell {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
 }
