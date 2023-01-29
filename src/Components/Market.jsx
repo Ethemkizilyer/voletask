@@ -59,7 +59,7 @@ function Mycards(props) {
       <section className="MycardBody" id="section-2">
         <Row>
           <Col xs={12} className="mycardHead">
-            <div>MY CARDS</div>
+            <div>MARKET</div>
           </Col>
 
           <Col className="mb-1 accordGrid" xs={12} sm={6} md={4} lg={3} xxl={2}>
