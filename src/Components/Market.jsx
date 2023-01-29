@@ -7,7 +7,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import MarketItem from "./MarketItem";
 
-function Mycards(props) {
+function Market(props) {
   function valuetext(value) {
     return (
       <Row className="sldr">
@@ -24,8 +24,8 @@ function Mycards(props) {
     setValue(e.target.value);
   };
   const dispatch = useDispatch();
-  const { cards } = useSelector((state) => state.market);
-  console.log(cards);
+  const {cards} = useSelector((state) => state.market);
+
   const counts = [];
   cards.forEach((x) => {
     counts[x.cardType] = (counts[x.cardType] || 0) + 1;
@@ -129,11 +129,11 @@ function Mycards(props) {
             <Row>
               {cards
                 .filter(
-                  (mydt) =>
-                    mydt.cardType.toLowerCase().includes(query.toLowerCase()) &&
-                    mydt.position.toLowerCase().includes(postn.toLowerCase()) &&
-                    mydt.price >= value[0] &&
-                    mydt.price <= value[1]
+                  (item) =>
+                    item.cardType.toLowerCase().includes(query.toLowerCase()) &&
+                    item.position.toLowerCase().includes(postn.toLowerCase()) &&
+                    item.price >= value[0] &&
+                    item.price <= value[1]
                 )
                 .slice(page * PER_PAGE - PER_PAGE, page * PER_PAGE)
 
@@ -169,4 +169,4 @@ function Mycards(props) {
   );
 }
 
-export default Mycards;
+export default Market;

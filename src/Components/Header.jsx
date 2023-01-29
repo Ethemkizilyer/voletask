@@ -1,8 +1,11 @@
 import React from "react";
 import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
 import Scrollspy from "react-scrollspy";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const cardslice = useSelector((state) => state.counter);
+
   return (
     <Navbar className="header " collapseOnSelect expand="lg" variant="dark">
       <Container>
@@ -27,13 +30,13 @@ function Header() {
             </Scrollspy>
           </Nav>
           <Nav>
-            <Nav.Link className="navlink" eventKey={2} href="#budget">
+            <Nav.Link className="navlink" eventKey={2} href="#memes">
               <Row className="salescard ">
                 <Col className="imageback" xs={4}>
                   <img src="img/vole_wallet.png" className="pt-2" alt="cart" />
                 </Col>
                 <Col className="pt-2" xs={8}>
-                  &#x20AC; 100
+                  &#x20AC; {cardslice.value.toFixed(2)}
                 </Col>
               </Row>
             </Nav.Link>
