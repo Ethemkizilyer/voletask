@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
 export const getMyAsync = createAsyncThunk(
   "my/getMyAsync",
@@ -10,7 +10,7 @@ export const getMyAsync = createAsyncThunk(
 console.log(data)
         return data;
       } catch (error) {
-        alert(error.message);
+        console.log(error.message);
       }
   }
 );
@@ -27,8 +27,9 @@ export const mySlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
+
       const my = {
-        id: nanoid(),
+        id:action.payload.id,
         photoUrl: action.payload.photoUrl,
         price: action.payload.price,
         cardType: action.payload.cardType,
@@ -37,8 +38,16 @@ export const mySlice = createSlice({
         team: action.payload.team,
         attributes: action.payload.attributes,
       };
+const filter= state.myCards.some((item)=>item.id==my.id)
 
-      state.myCards.push(my);
+if (filter) {
+  toast.error("This player already has it in his basket");
+} else {
+  state.myCards.push(my);
+  toast.success("Added to the player cart");
+}
+
+      
     },
     toggleComplete: (state, action) => {
       const index = state.myCards.findIndex(
@@ -47,10 +56,10 @@ export const mySlice = createSlice({
       state.myCards[index].completed = action.payload.completed;
     },
     deleteTodo: (state, action) => {
-      return state.myCards.filter((card) => card.id !== action.payload.id);
+      state.myCards = state.myCards.filter((card) => card.id !== action.payload.id);
     },
     CategoryTodo: (state, action) => {
-      return state.myCards.filter(
+      state.myCards = state.myCards.filter(
         (card) => card.cardType === action.payload.cardType
       );
     },
