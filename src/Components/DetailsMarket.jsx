@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../features/mySlice";
+import { addCard } from "../features/mySlice";
 import { decrementByAmount } from "../features/cardSlice";
 function DetailsMarket({
   lgShow,
@@ -29,7 +29,7 @@ function DetailsMarket({
       dispatch(decrementByAmount(price));
       handleClose();
       dispatch(
-        addTodo({
+        addCard({
           id,
           photoUrl,
           price,

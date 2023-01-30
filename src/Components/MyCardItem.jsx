@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, Button, Col, Modal, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { deleteTodo } from "../features/mySlice";
+import { deleteCard } from "../features/mySlice";
 import { incrementByAmount } from "../features/cardSlice";
 import Details from "./Details";
 
@@ -23,7 +23,7 @@ function MyCardItem({
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleDeleteClick = () => {
-    dispatch(deleteTodo({ id }));
+    dispatch(deleteCard({ id }));
     dispatch(incrementByAmount(price));
   };
 

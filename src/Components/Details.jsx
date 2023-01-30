@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo } from "../features/mySlice";
+import { deleteCard } from "../features/mySlice";
 import { incrementByAmount } from "../features/cardSlice";
 function Details({
   lgShow,
@@ -21,7 +21,7 @@ function Details({
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleDeleteClick = () => {
-    dispatch(deleteTodo({ id }));
+    dispatch(deleteCard({ id }));
     dispatch(incrementByAmount(price));
   };
 

@@ -21,7 +21,7 @@ export const mySlice = createSlice({
   name: "my",
   initialState,
   reducers: {
-    addTodo: (state, action) => {
+    addCard: (state, action) => {
       const my = {
         id: action.payload.id,
         photoUrl: action.payload.photoUrl,
@@ -49,13 +49,13 @@ export const mySlice = createSlice({
       state.myCards[index].completed = action.payload.completed;
       localStorage.setItem("cards", JSON.stringify(state.myCards));
     },
-    deleteTodo: (state, action) => {
+    deleteCard: (state, action) => {
       state.myCards = state.myCards.filter(
         (card) => card.id !== action.payload.id
       );
       localStorage.setItem("cards", JSON.stringify(state.myCards));
     },
-    CategoryTodo: (state, action) => {
+    CategoryCard: (state, action) => {
       state.myCards = state.myCards.filter(
         (card) => card.cardType === action.payload.cardType
       );
@@ -80,7 +80,6 @@ export const mySlice = createSlice({
   },
 });
 
-export const { addTodo, toggleComplete, deleteTodo, CategoryTodo } =
-  mySlice.actions;
+export const { addCard, toggleComplete, deleteCard, CategoryCard } = mySlice.actions;
 
 export default mySlice.reducer;
