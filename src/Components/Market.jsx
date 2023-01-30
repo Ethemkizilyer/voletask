@@ -58,7 +58,7 @@ function Market() {
       : setSelectedPosition(e.target.innerText);
     e.target.innerText == postn ? setpostn("") : setpostn(e.target.innerText);
   };
-  let [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const PER_PAGE = 10;
 
   const count = Math.ceil(filtered.length / PER_PAGE);
