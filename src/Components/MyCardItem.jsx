@@ -25,6 +25,7 @@ function MyCardItem({
   const handleDeleteClick = () => {
     dispatch(deleteTodo({ id }));
     dispatch(incrementByAmount(price));
+    console.log(price);
   };
 
   return (

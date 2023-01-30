@@ -1,10 +1,15 @@
-import React from "react";
-import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Navbar, Container, Nav, Row, Col, Spinner } from "react-bootstrap";
 import Scrollspy from "react-scrollspy";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getBudgetAsync } from "../features/cardSlice";
 
 function Header() {
-  const cardslice = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
+  const { value, loading } = useSelector((state) => state.counter);
+  useEffect(() => {
+    dispatch(getBudgetAsync());
+  }, [dispatch]);
 
   return (
     <Navbar className="header " collapseOnSelect expand="lg" variant="dark">
@@ -30,13 +35,17 @@ function Header() {
             </Scrollspy>
           </Nav>
           <Nav>
-            <Nav.Link className="navlink" eventKey={2} href="#memes">
+            <Nav.Link className="navlink" eventKey={2} href="#budget">
               <Row className="salescard ">
                 <Col className="imageback" xs={4}>
                   <img src="img/vole_wallet.png" className="pt-2" alt="cart" />
                 </Col>
                 <Col className="pt-2" xs={8}>
-                  &#x20AC; {cardslice.value.toFixed(2)}
+                  &#x20AC; {loading ? (
+                    <Spinner size="sm" animation="border" role="status" />
+                  ) : (
+                     value.toFixed(2)
+                  )}
                 </Col>
               </Row>
             </Nav.Link>

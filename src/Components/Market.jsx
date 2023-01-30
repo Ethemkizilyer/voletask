@@ -7,12 +7,12 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import MarketItem from "./MarketItem";
 
-function Market(props) {
+function Market() {
   function valuetext(value) {
     return (
       <Row className="sldr">
         <Col className="text-left">&#x20AC; {value[0]}</Col>
-        <Col style={{ textAlign: "right" }}> &#x20AC;{value[1]}</Col>
+        <Col style={{ textAlign: "right" }}> &#x20AC; {value[1]}</Col>
       </Row>
     );
   }

@@ -1,6 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const initialState = { value: JSON.parse(localStorage.getItem("budget")) || 100 };
+
+
+export const getBudgetAsync = createAsyncThunk(
+  "budget/getBudgetAsync",
+  async () => {
+    try {
+      const { data } = await axios("http://challenge.vole.io/budget");
+      return data;
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+);
+
+const initialState = {
+  loading: false,
+  error: false,
+  value:0 ,
+};
+
 
 const cardSlice = createSlice({
   name: "counter",
@@ -9,11 +29,28 @@ const cardSlice = createSlice({
     incrementByAmount(state, action) {
       state.value += action.payload;
       localStorage.setItem("budget", JSON.stringify(state.value));
+       
     },
     decrementByAmount(state, action) {
       state.value -= action.payload;
-            localStorage.setItem("budget", JSON.stringify(state.value));
+      localStorage.setItem("budget",JSON.stringify(state.value) );
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getBudgetAsync.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getBudgetAsync.fulfilled, (state, action) => {
+        state.loading = false;
+        state.value =
+          JSON.parse(localStorage.getItem("budget")) ? JSON.parse(localStorage.getItem("budget")) : action.payload.budget;
+        state.error = false;
+      })
+      .addCase(getBudgetAsync.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      });
   },
 });
 
