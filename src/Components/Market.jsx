@@ -35,11 +35,11 @@ function Market() {
   });
 
   const counts = [];
-  filtered.forEach((x) => {
+  filtered?.forEach((x) => {
     counts[x.cardType] = (counts[x.cardType] || 0) + 1;
   });
   const countsPosition = [];
-  filtered.forEach((x) => {
+  filtered?.forEach((x) => {
     countsPosition[x.position] = (countsPosition[x.position] || 0) + 1;
   });
 
