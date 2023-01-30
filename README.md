@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/106928233/215378859-378408fa-e14b-47e3-96f8-1c39d259cb5a.mp4
+
 # Frontend Case Study
 
 - The purpose of this site is users should be able to buy and sell the player cards they want using their balance on the site. (Within Balance)
