@@ -39,9 +39,11 @@ const cardSlice = createSlice({
       })
       .addCase(getBudgetAsync.fulfilled, (state, action) => {
         state.loading = false;
-        state.value = JSON.parse(localStorage.getItem("budget"))
-          ? JSON.parse(localStorage.getItem("budget"))
-          : action.payload.budget;
+        state.value =
+          (JSON.parse(localStorage.getItem("budget")) == 0 ||
+          JSON.parse(localStorage.getItem("budget")))
+            ? JSON.parse(localStorage.getItem("budget"))
+            : action.payload.budget;
         state.error = false;
       })
       .addCase(getBudgetAsync.rejected, (state) => {
