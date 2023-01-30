@@ -5,7 +5,7 @@ export const getBudgetAsync = createAsyncThunk(
   "budget/getBudgetAsync",
   async () => {
     try {
-      const { data } = await axios("http://challenge.vole.io/budget");
+      const { data } = await axios("https://challenge.vole.io/budget");
       return data;
     } catch (error) {
       alert(error.message);
