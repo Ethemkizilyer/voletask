@@ -6,6 +6,7 @@ import { getMarketAsync } from "../features/marketSlice";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import MarketItem from "./MarketItem";
+import { getMyAsync } from "../features/mySlice";
 
 function Market() {
   function valuetext(value) {
@@ -19,22 +20,26 @@ function Market() {
   const [value, setValue] = useState([0, 100]);
   const [query, setquery] = useState("");
   const [postn, setpostn] = useState("");
- const [selectedCategory, setSelectedCategory] = useState("");
- const [selectedPosition, setSelectedPosition] = useState("");
-
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedPosition, setSelectedPosition] = useState("");
 
   const handleChange = (e) => {
     setValue(e.target.value);
   };
   const dispatch = useDispatch();
-  const {cards} = useSelector((state) => state.market);
+  const { cards } = useSelector((state) => state.market);
+  const { myCards } = useSelector((state) => state.my);
+
+  const filtered = cards?.filter((item) => {
+    return !myCards?.some((card) => item.id === card.id);
+  });
 
   const counts = [];
-  cards.forEach((x) => {
+  filtered.forEach((x) => {
     counts[x.cardType] = (counts[x.cardType] || 0) + 1;
   });
   const countsPosition = [];
-  cards.forEach((x) => {
+  filtered.forEach((x) => {
     countsPosition[x.position] = (countsPosition[x.position] || 0) + 1;
   });
 
@@ -56,7 +61,7 @@ function Market() {
   let [page, setPage] = useState(1);
   const PER_PAGE = 10;
 
-  const count = Math.ceil(cards.length / PER_PAGE);
+  const count = Math.ceil(filtered.length / PER_PAGE);
 
   const handlePagination = (e, p) => {
     setPage(p);
@@ -64,6 +69,7 @@ function Market() {
 
   useEffect(() => {
     dispatch(getMarketAsync());
+    dispatch(getMyAsync());
   }, [dispatch]);
 
   return (
@@ -158,7 +164,7 @@ function Market() {
           </Col>
           <Col className="mt-1 mb-1" xs={12} sm={6} md={8} lg={9} xxl={10}>
             <Row>
-              {cards
+              {filtered
                 .filter(
                   (item) =>
                     item.cardType.toLowerCase().includes(query.toLowerCase()) &&

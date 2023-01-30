@@ -41,10 +41,11 @@ function Header() {
                   <img src="img/vole_wallet.png" className="pt-2" alt="cart" />
                 </Col>
                 <Col className="pt-2" xs={8}>
-                  &#x20AC; {loading ? (
+                  &#x20AC;{" "}
+                  {loading ? (
                     <Spinner size="sm" animation="border" role="status" />
                   ) : (
-                     value.toFixed(2)
+                    value.toFixed(2)
                   )}
                 </Col>
               </Row>

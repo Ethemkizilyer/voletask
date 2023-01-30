@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
-
 export const getBudgetAsync = createAsyncThunk(
   "budget/getBudgetAsync",
   async () => {
@@ -18,9 +16,8 @@ export const getBudgetAsync = createAsyncThunk(
 const initialState = {
   loading: false,
   error: false,
-  value:0 ,
+  value: 0,
 };
-
 
 const cardSlice = createSlice({
   name: "counter",
@@ -29,11 +26,10 @@ const cardSlice = createSlice({
     incrementByAmount(state, action) {
       state.value += action.payload;
       localStorage.setItem("budget", JSON.stringify(state.value));
-       
     },
     decrementByAmount(state, action) {
       state.value -= action.payload;
-      localStorage.setItem("budget",JSON.stringify(state.value) );
+      localStorage.setItem("budget", JSON.stringify(state.value));
     },
   },
   extraReducers: (builder) => {
@@ -43,8 +39,9 @@ const cardSlice = createSlice({
       })
       .addCase(getBudgetAsync.fulfilled, (state, action) => {
         state.loading = false;
-        state.value =
-          JSON.parse(localStorage.getItem("budget")) ? JSON.parse(localStorage.getItem("budget")) : action.payload.budget;
+        state.value = JSON.parse(localStorage.getItem("budget"))
+          ? JSON.parse(localStorage.getItem("budget"))
+          : action.payload.budget;
         state.error = false;
       })
       .addCase(getBudgetAsync.rejected, (state) => {
