@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import market from "../data/market"
 
 export const getMarketAsync = createAsyncThunk(
   "market/getMarketAsync",
@@ -7,7 +8,7 @@ export const getMarketAsync = createAsyncThunk(
     try {
       const {data} = await axios("http://challenge.vole.io/cards/market");
 
-      return data;
+      return market;
     } catch (error) {
       alert(error.message);
     }

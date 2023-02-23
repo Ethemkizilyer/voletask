@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+import mycardss from "../data/mycard"; 
 
 export const getMyAsync = createAsyncThunk("my/getMyAsync", async () => {
   try {
     const { data } = await axios("http://challenge.vole.io/cards/mycards");
-    return data;
+    return mycardss;
   } catch (error) {
     console.log(error.message);
   }
@@ -62,6 +63,7 @@ export const mySlice = createSlice({
       localStorage.setItem("cards", JSON.stringify(state.myCards));
     },
   },
+  
   extraReducers: (builder) => {
     builder
       .addCase(getMyAsync.pending, (state) => {
