@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import budget from "../data/budget";
 
 export const getBudgetAsync = createAsyncThunk(
   "budget/getBudgetAsync",
@@ -12,6 +13,9 @@ export const getBudgetAsync = createAsyncThunk(
     }
   }
 );
+// export const getBudgetAsync = () => {
+//   return budget;
+// };
 
 const initialState = {
   loading: false,
@@ -40,8 +44,8 @@ const cardSlice = createSlice({
       .addCase(getBudgetAsync.fulfilled, (state, action) => {
         state.loading = false;
         state.value =
-          (JSON.parse(localStorage.getItem("budget")) == 0 ||
-          JSON.parse(localStorage.getItem("budget")))
+          JSON.parse(localStorage.getItem("budget")) == 0 ||
+          JSON.parse(localStorage.getItem("budget"))
             ? JSON.parse(localStorage.getItem("budget"))
             : action.payload.budget;
         state.error = false;

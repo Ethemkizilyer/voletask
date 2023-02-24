@@ -1,16 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import mycardss from "../data/mycard"; 
+import mycardss from "../data/mycard";
 
 export const getMyAsync = createAsyncThunk("my/getMyAsync", async () => {
   try {
     const { data } = await axios("http://challenge.vole.io/cards/mycards");
-    return mycardss;
+    return data;
   } catch (error) {
     console.log(error.message);
   }
 });
+// export const getMyAsync = () => {
+//   return mycardss;
+// };
 
 const initialState = {
   loading: false,
@@ -54,6 +57,7 @@ export const mySlice = createSlice({
       state.myCards = state.myCards.filter(
         (card) => card.id !== action.payload.id
       );
+      toast.info("The player was removed from the basket");
       localStorage.setItem("cards", JSON.stringify(state.myCards));
     },
     CategoryCard: (state, action) => {
@@ -63,7 +67,7 @@ export const mySlice = createSlice({
       localStorage.setItem("cards", JSON.stringify(state.myCards));
     },
   },
-  
+
   extraReducers: (builder) => {
     builder
       .addCase(getMyAsync.pending, (state) => {
@@ -82,6 +86,7 @@ export const mySlice = createSlice({
   },
 });
 
-export const { addCard, toggleComplete, deleteCard, CategoryCard } = mySlice.actions;
+export const { addCard, toggleComplete, deleteCard, CategoryCard } =
+  mySlice.actions;
 
 export default mySlice.reducer;

@@ -8,12 +8,14 @@ export const getMarketAsync = createAsyncThunk(
     try {
       const {data} = await axios("http://challenge.vole.io/cards/market");
 
-      return market;
+      return data;
     } catch (error) {
       alert(error.message);
     }
   }
 );
+// export const getMarketAsync = ()=>{ return market}
+
 
 const initialState = {
   loading: false,

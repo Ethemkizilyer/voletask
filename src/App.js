@@ -9,11 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="App">
-      <ToastContainer/>
+      <ToastContainer position="top-right" style={{top:"15%"}} />
       <Header />
       <CarouselSlider />
-      <Mycards/>
-    <Market/>
+      <Mycards />
+      <Market />
     </div>
   );
 }
