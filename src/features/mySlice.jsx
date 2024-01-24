@@ -5,7 +5,7 @@ import mycardss from "../data/mycard";
 
 export const getMyAsync = createAsyncThunk("my/getMyAsync", async () => {
   try {
-    const { data } = await axios("http://challenge.vole.io/cards/mycards");
+    // const { data } = await axios("http://challenge.vole.io/cards/mycards");
     return mycardss;
   } catch (error) {
     console.log(error.message);
