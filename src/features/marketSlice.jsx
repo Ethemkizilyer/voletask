@@ -6,7 +6,7 @@ export const getMarketAsync = createAsyncThunk(
   "market/getMarketAsync",
   async () => {
     try {
-      const {data} = await axios("http://challenge.vole.io/cards/market");
+      // const {data} = await axios("http://challenge.vole.io/cards/market");
 
       return market;
     } catch (error) {
